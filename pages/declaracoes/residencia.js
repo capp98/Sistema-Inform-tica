@@ -228,7 +228,7 @@ function gen(dados) {
           page: {
             margin: {
               top: '1.70cm',
-              right: '2cm',
+              right: '3cm',
               bottom: '1.25cm',
               left: '3cm',
             },
