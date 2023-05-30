@@ -1,0 +1,18 @@
+.nav a,
+.nav a:visited {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 0px;
+}
+.nav a:hover {
+  background: #414643;
+}
+
+.nav {
+  border-radius: 0px;
+  margin: 0;
+  background: #2a2f2c;
+  display: flex;
+  align-items: center;
+}
