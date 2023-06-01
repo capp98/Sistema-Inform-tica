@@ -179,7 +179,6 @@ export default function Curriculo() {
                 <input id="trabalho-local" type="text" />
                 <label htmlFor="trabalho-cargo">Cargo</label>
                 <input id="trabalho-cargo" type="text" />
-                {/* <ul className="list"></ul> */}
                 <label htmlFor="trabalho-periodo">Período</label>
                 <input id="trabalho-periodo" type="text" />
               </fieldset>

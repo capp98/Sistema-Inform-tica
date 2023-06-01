@@ -25,29 +25,58 @@ export function DivEndereco({ Component }) {
 }
 
 export function fieldSetTelefone({ component }) {
+  let [telefoneContagem, setTelefoneContagem] = useState(1);
+
+  let componentesTelefone = [];
+  for (let i = 0; i < telefoneContagem; i++) {
+    componentesTelefone.push(
+      <input
+        onBlur={formataTelefone}
+        onFocus={resetaCampo}
+        name="telefone"
+        type="text"
+        maxLength={15}
+      />
+    );
+  }
   return (
     <>
       <fieldset>
         <legend>Telefones</legend>
-        {/* <div className={styles.divInput}> */}
         <div className="divInput">
-          <div className="telefones">
-            <input name="telefone" type="text" maxLength={15} />
-          </div>
+          <div className="telefones">{componentesTelefone}</div>
           <input
             type="button"
-            className={`botaoAcao adicionarTelefone`}
+            className={`botaoAcao`}
+            onClick={() => setTelefoneContagem(++telefoneContagem)}
             defaultValue="+"
           />
           <input
             type="button"
-            className={`botaoAcao removerTelefone`}
+            className={`botaoAcao`}
+            onClick={() =>
+              telefoneContagem == 1 || setTelefoneContagem(--telefoneContagem)
+            }
             defaultValue="-"
           />
         </div>
       </fieldset>
     </>
   );
+}
+
+function formataTelefone(event) {
+  let telefoneCampo = event.target;
+  let telefone = telefoneCampo.value.replace(/\D+/g, '');
+
+  telefone =
+    telefone.length < 9
+      ? telefone
+      : telefone.length == 9
+      ? telefone.replace(/(\d{5})(\d{4})/, '$1-$2')
+      : telefone.replace(/(\d{2})(\d{5})(\d{2})/, '($1) $2-$3');
+
+  telefoneCampo.value = telefone;
 }
 
 export function DataDeNascimento() {
